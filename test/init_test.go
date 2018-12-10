@@ -34,6 +34,9 @@ import (
 
 	// Mysteriously by k8s libs, or they fail to create `KubeClient`s from config. Apparently just importing it is enough. @_@ side effects @_@. https://github.com/kubernetes/client-go/issues/242
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
+
+	// Load the oidc to allow connecto to IKS
+        _ "k8s.io/client-go/plugin/pkg/client/auth/oidc"
 )
 
 var metricMutex *sync.Mutex = &sync.Mutex{}
